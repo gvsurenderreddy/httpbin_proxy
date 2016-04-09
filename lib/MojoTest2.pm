@@ -13,6 +13,8 @@ sub startup {
 
   # Normal route to controller
   $r->get('/')->to('example#welcome');
+
+	$r->get('/httpbin/:path' => [path => qr/(.*\/?)+/])->to('httpbin#proxy');
 }
 
 1;
